@@ -38,47 +38,66 @@
     .glass-panel:hover { border-color: rgba(45, 212, 191, 0.3); transform: translateY(-2px); }
     .gradient-text { background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #2dd4bf 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .tag { background: rgba(20, 184, 166, 0.1); color: #5eead4; border: 1px solid rgba(45, 212, 191, 0.2); font-size: 0.8rem; font-weight: 500; border-radius: 9999px; padding: 0.35rem 0.85rem; display: inline-flex; align-items: center; gap: 0.35rem; }
+    
+    /* Floating Popup Styles */
+    #floating-popup {
+      transform: translateY(150%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #floating-popup.show {
+      transform: translateY(0);
+    }
+
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #0a0f18; }
     ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
   </style>
 </head>
-<body class="min-h-screen relative antialiased selection:bg-brand-500 selection:text-white">
+<body class="min-h-screen relative antialiased selection:bg-brand-500 selection:text-white pb-16">
 
   <div class="glow-bg"></div>
 
   <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
     
+    <!-- Hero Header -->
     <header class="glass-panel p-6 sm:p-10 mb-8">
       <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
         <div class="relative group">
           <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden border-2 border-brand-500/30 p-1 bg-dark-card shadow-xl group-hover:border-brand-400">
             <img src="photo.jpg" alt="Vlad Shevchenko" class="w-full h-full object-cover rounded-xl" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop';" />
           </div>
+          <div class="absolute -bottom-2 -right-2 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs px-2.5 py-0.5 rounded-full flex items-center gap-1.5 backdrop-blur-md">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Open to Work
+          </div>
         </div>
 
         <div class="flex-1 text-center md:text-left">
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-white gradient-text mb-2">Vlad Shevchenko</h1>
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white gradient-text">Vlad Shevchenko</h1>
+            <span class="text-xs font-mono px-3 py-1 bg-brand-500/10 text-brand-300 border border-brand-500/20 rounded-md">Remote Only</span>
+          </div>
+
           <p class="text-lg sm:text-xl font-medium text-brand-400 mb-4">Affiliate / Publisher / BizDev Manager</p>
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
-            Performance-driven Affiliate Manager with 1+ year of experience in publisher recruitment, onboarding, and scaling. Primary focus on White Hat LeadGen (USA). Specialized in building end-to-end publisher funnels, tracking setup, and ROI optimization.
+            Performance-driven Affiliate Manager with 1+ year of experience in publisher recruitment, onboarding, and network scaling. Primary focus on <strong class="text-white">White Hat LeadGen (USA)</strong> and deep understanding of core Digital Marketing principles. Specialized in building end-to-end publisher funnels, tracking setup, ROI optimization, and anti-fraud management across multi-channel traffic.
           </p>
 
           <div class="flex flex-wrap justify-center md:justify-start gap-3">
-            <a href="https://t.me/Vodnyyu" target="_blank" class="px-4 py-2 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 text-sm font-semibold"><i class="fa-brands fa-telegram mr-2"></i>@Vodnyyu</a>
-            <a href="mailto:vladshevchenko088@gmail.com" class="px-4 py-2 rounded-xl bg-rose-500/10 text-rose-300 border border-rose-500/20 text-sm font-semibold"><i class="fa-solid fa-envelope mr-2"></i>vladshevchenko088@gmail.com</a>
-            <a href="tel:+380687240473" class="px-4 py-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm font-semibold"><i class="fa-solid fa-phone mr-2"></i>+380 68 724 04 73</a>
+            <a href="https://t.me/Vodnyyu" target="_blank" class="px-4 py-2 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 text-sm font-semibold hover:bg-sky-500/20 transition-colors"><i class="fa-brands fa-telegram mr-2"></i>@Vodnyyu</a>
+            <a href="mailto:vladshevchenko088@gmail.com" class="px-4 py-2 rounded-xl bg-rose-500/10 text-rose-300 border border-rose-500/20 text-sm font-semibold hover:bg-rose-500/20 transition-colors"><i class="fa-solid fa-envelope mr-2"></i>vladshevchenko088@gmail.com</a>
+            <a href="tel:+380687240473" class="px-4 py-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm font-semibold hover:bg-emerald-500/20 transition-colors"><i class="fa-solid fa-phone mr-2"></i>+380 68 724 04 73</a>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Metrics -->
+    <!-- Metrics Grid -->
     <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
       <div class="glass-panel p-5 text-center">
         <div class="text-2xl sm:text-3xl font-extrabold text-brand-300 font-mono mb-1">15+</div>
         <div class="text-xs text-slate-300 uppercase tracking-wider font-semibold">Active Consistent Publishers</div>
-        <p class="text-xs text-slate-400 mt-1">$30K–$150K Vol/mo | +50% Scaling</p>
+        <p class="text-xs text-slate-400 mt-1">$30K–$150K monthly volume | Scaled +50%</p>
       </div>
 
       <div class="glass-panel p-5 text-center">
@@ -89,84 +108,221 @@
 
       <div class="glass-panel p-5 text-center">
         <div class="text-2xl sm:text-3xl font-extrabold text-brand-300 font-mono mb-1">USA LeadGen</div>
-        <div class="text-xs text-slate-300 uppercase tracking-wider font-semibold">Core Expertise</div>
-        <p class="text-xs text-slate-400 mt-1">CPL / RevShare Models</p>
+        <div class="text-xs text-slate-300 uppercase tracking-wider font-semibold">Primary Market Focus</div>
+        <p class="text-xs text-slate-400 mt-1">CPL / RevShare White Hat Verticals</p>
       </div>
     </section>
 
+    <!-- Two Columns Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Left Column: Work Experience & Traffic -->
       <div class="lg:col-span-2 space-y-8">
         
-        <!-- Experience -->
+        <!-- Detailed Experience -->
         <section class="glass-panel p-6 sm:p-8">
           <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400"><i class="fa-solid fa-briefcase"></i></div>
-            <h2 class="text-xl font-bold text-white">Work Experience</h2>
+            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 border border-brand-500/20"><i class="fa-solid fa-briefcase"></i></div>
+            <div>
+              <h2 class="text-xl font-bold text-white">Work Experience</h2>
+              <p class="text-xs text-slate-400">Career path and verified responsibilities</p>
+            </div>
           </div>
 
           <div class="relative pl-6 border-l-2 border-brand-500/30 ml-2 space-y-6">
             <div class="relative">
               <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-brand-400 border-4 border-dark-bg"></div>
-              <div class="flex flex-wrap items-center justify-between mb-2">
+              
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <h3 class="text-lg font-bold text-white">Affiliate Manager</h3>
                 <span class="text-xs font-mono font-medium px-2.5 py-1 rounded bg-slate-800 text-brand-300 border border-slate-700">2025 — Present</span>
               </div>
-              <ul class="space-y-3 text-sm text-slate-300">
-                <li><i class="fa-solid fa-arrow-right text-brand-400 mr-2"></i><strong>Publisher Recruitment:</strong> Active prospecting, qualification, and onboarding of top-performing partners.</li>
-                <li><i class="fa-solid fa-arrow-right text-brand-400 mr-2"></i><strong>Account Scaling:</strong> Growth of active accounts, negotiating terms, and driving consistent volume ($30K-$150K/mo).</li>
-                <li><i class="fa-solid fa-arrow-right text-brand-400 mr-2"></i><strong>Full-Cycle Support:</strong> End-to-end publisher assistance, S2S integration, and technical troubleshooting.</li>
-                <li><i class="fa-solid fa-arrow-right text-brand-400 mr-2"></i><strong>Advertiser Relations:</strong> Coordination on caps, payouts, and campaign performance loops.</li>
+              <div class="text-sm font-semibold text-brand-400 mb-4">Affiliate Network / Performance Agency (NDA)</div>
+
+              <ul class="space-y-3.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-arrow-right text-brand-400 text-xs mt-1.5 shrink-0"></i>
+                  <span><strong>Partner Acquisition & Cold Outreach:</strong> Active research, prospecting, and onboarding of top-tier publishers across Telegram, LinkedIn, affiliate forums (STM, affiliatefix), and niche platforms.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-arrow-right text-brand-400 text-xs mt-1.5 shrink-0"></i>
+                  <span><strong>Revenue & Volume Scaling:</strong> Scaled individual partners to consistent monthly volumes up to $150,000/month while growing legacy accounts by over 50%.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-arrow-right text-brand-400 text-xs mt-1.5 shrink-0"></i>
+                  <span><strong>Technical Tracking & Integrations:</strong> Complete setup and technical QA of campaign tracking — S2S Server-to-Server postbacks, API integrations, pixels, and tag tracking across multiple platforms.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-arrow-right text-brand-400 text-xs mt-1.5 shrink-0"></i>
+                  <span><strong>Anti-Fraud & Quality Assurance:</strong> Implementation of fraud detection protocols, filtering low-quality and bot traffic, traffic source optimization, and fraud deductions.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-arrow-right text-brand-400 text-xs mt-1.5 shrink-0"></i>
+                  <span><strong>Media Strategy & Funnel Guidance:</strong> Direct guidance on creative strategies, landing pages, and funnel optimization for media buyers running Facebook Ads, PPC (Google/Bing), SEO, TikTok, Native, and Influencer channels.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-arrow-right text-brand-400 text-xs mt-1.5 shrink-0"></i>
+                  <span><strong>Advertiser & Offer Management:</strong> Close coordination with direct advertisers on cap allocations, payout rate negotiations, feedback loops, and new collaboration models.</span>
+                </li>
               </ul>
             </div>
           </div>
         </section>
 
-        <!-- Traffic Section (Cleaned) -->
+        <!-- Traffic Sources -->
         <section class="glass-panel p-6 sm:p-8">
           <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400"><i class="fa-solid fa-chart-pie"></i></div>
-            <h2 class="text-xl font-bold text-white">Traffic Sources Expertise</h2>
+            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 border border-brand-500/20"><i class="fa-solid fa-chart-pie"></i></div>
+            <div>
+              <h2 class="text-xl font-bold text-white">Traffic Sources Expertise</h2>
+              <p class="text-xs text-slate-400">Channels managed and operational models</p>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 text-sm border border-white/5 text-slate-200">PPC (Google / Bing)</span>
-            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 text-sm border border-white/5 text-slate-200">Facebook</span>
-            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 text-sm border border-white/5 text-slate-200">Native Ads</span>
-            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 text-sm border border-white/5 text-slate-200">Pop Traffic</span>
-            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 text-sm border border-white/5 text-slate-200">Push Traffic</span>
-            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 text-sm border border-white/5 text-slate-200">Email</span>
-            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 text-sm border border-white/5 text-slate-200">SMS</span>
-            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 text-sm border border-white/5 text-slate-200">SEO / Organic</span>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/60 text-sm border border-white/5 text-slate-200">PPC (Google Ads, Bing Ads)</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/60 text-sm border border-white/5 text-slate-200">Facebook Ads</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/60 text-sm border border-white/5 text-slate-200">Pop Traffic</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/60 text-sm border border-white/5 text-slate-200">Push Traffic</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/60 text-sm border border-white/5 text-slate-200">Email Marketing</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/60 text-sm border border-white/5 text-slate-200">SMS Traffic</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/60 text-sm border border-white/5 text-slate-200">Native Platforms</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-900/60 text-sm border border-white/5 text-slate-200">SEO Affiliate Websites</span>
           </div>
         </section>
+
       </div>
 
-      <!-- Sidebar -->
+      <!-- Right Column: Hard Skills & Soft Skills -->
       <div class="space-y-8">
+        
+        <!-- Hard Skills -->
         <section class="glass-panel p-6 sm:p-8">
-          <h2 class="text-lg font-bold text-white mb-4">Hard Skills</h2>
+          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 border border-brand-500/20"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+              <h2 class="text-lg font-bold text-white">Hard Skills</h2>
+              <p class="text-xs text-slate-400">Core domain competencies</p>
+            </div>
+          </div>
+
           <div class="flex flex-wrap gap-2">
             <span class="tag">Affiliate Marketing</span>
-            <span class="tag">LeadGen (CPL/RevShare)</span>
-            <span class="tag">Publisher Onboarding</span>
-            <span class="tag">S2S / API Tracking</span>
-            <span class="tag">Anti-Fraud & Audit</span>
+            <span class="tag">Lead Generation (CPL/RevShare)</span>
+            <span class="tag">Publisher Recruitment</span>
+            <span class="tag">Postback (S2S) Tracking</span>
+            <span class="tag">API & Pixel Setup</span>
+            <span class="tag">Anti-Fraud & Quality Control</span>
             <span class="tag">ROI Optimization</span>
-            <span class="tag">CRM & Analytics</span>
+            <span class="tag">Partner Onboarding</span>
+            <span class="tag">Traffic Source R&D</span>
+            <span class="tag">Forums (STM, AffiliateFix)</span>
+            <span class="tag">CRM & Reporting</span>
+            <span class="tag">FB / PPC / SEO / TikTok Channels</span>
           </div>
         </section>
 
+        <!-- Soft Skills -->
         <section class="glass-panel p-6 sm:p-8">
-          <h2 class="text-lg font-bold text-white mb-4">Languages</h2>
+          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 border border-brand-500/20"><i class="fa-solid fa-bolt"></i></div>
+            <div>
+              <h2 class="text-lg font-bold text-white">Soft Skills</h2>
+              <p class="text-xs text-slate-400">Work ethics & collaboration</p>
+            </div>
+          </div>
+
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+              <span>Self-management & High Autonomy</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+              <span>Analytical & ROI-Driven Thinking</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+              <span>Cold Outreach & Direct Pitching</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+              <span>Effective Negotiation & Terms Closing</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+              <span>Partner Relationship Management (PRM)</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+              <span>Problem Solving Under Pressure</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+              <span>Prioritization & Multitasking</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Languages -->
+        <section class="glass-panel p-6 sm:p-8">
+          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 border border-brand-500/20"><i class="fa-solid fa-globe"></i></div>
+            <div>
+              <h2 class="text-lg font-bold text-white">Languages</h2>
+              <p class="text-xs text-slate-400">Proficiency level</p>
+            </div>
+          </div>
+
           <div class="space-y-3">
-             <!-- ... same language structure ... -->
              <div><div class="flex justify-between text-xs mb-1 font-semibold"><span class="text-white">English</span><span class="text-brand-300">C1 Advanced</span></div><div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-brand-400 h-1.5 rounded-full" style="width: 85%"></div></div></div>
              <div><div class="flex justify-between text-xs mb-1 font-semibold"><span class="text-white">Spanish</span><span class="text-sky-300">B1 Intermediate</span></div><div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-sky-400 h-1.5 rounded-full" style="width: 55%"></div></div></div>
              <div><div class="flex justify-between text-xs mb-1 font-semibold"><span class="text-white">Ukrainian</span><span class="text-emerald-400">Native</span></div><div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-emerald-400 h-1.5 rounded-full" style="width: 100%"></div></div></div>
              <div><div class="flex justify-between text-xs mb-1 font-semibold"><span class="text-white">Russian</span><span class="text-emerald-400">Native</span></div><div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-emerald-400 h-1.5 rounded-full" style="width: 100%"></div></div></div>
           </div>
         </section>
+
       </div>
+
     </div>
   </main>
+
+  <!-- Floating Bottom Popup (Appears after 90 seconds) -->
+  <div id="floating-popup" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-md bg-dark-card/95 backdrop-blur-xl border border-brand-500/40 rounded-2xl p-4 shadow-2xl flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-300 shrink-0 border border-brand-500/30">
+        <i class="fa-solid fa-paper-plane animate-bounce"></i>
+      </div>
+      <div>
+        <div class="text-sm font-bold text-white">Ready to connect?</div>
+        <div class="text-xs text-slate-300">Let's discuss opportunities in Telegram!</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="https://t.me/Vodnyyu" target="_blank" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-bg text-xs font-bold transition-colors shadow-lg shadow-brand-500/20 whitespace-nowrap">
+        Open Telegram
+      </a>
+      <button onclick="closePopup()" class="text-slate-400 hover:text-white p-1.5 text-sm">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Show popup after 1.5 minutes (90,000 milliseconds)
+    setTimeout(() => {
+      const popup = document.getElementById('floating-popup');
+      if (popup) {
+        popup.classList.add('show');
+      }
+    }, 90000);
+
+    function closePopup() {
+      const popup = document.getElementById('floating-popup');
+      if (popup) {
+        popup.classList.remove('show');
+      }
+    }
+  </script>
+
 </body>
 </html>
