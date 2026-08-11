@@ -286,7 +286,7 @@
     </div>
   </main>
 
-  <!-- Floating Bottom Popup (Appears after 90 seconds) -->
+  <!-- Floating Bottom Popup (Appears once after 90 seconds) -->
   <div id="floating-popup" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-md bg-dark-card/95 backdrop-blur-xl border border-brand-500/40 rounded-2xl p-4 shadow-2xl flex items-center justify-between gap-4">
     <div class="flex items-center gap-3">
       <div class="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-300 shrink-0 border border-brand-500/30">
@@ -298,7 +298,7 @@
       </div>
     </div>
     <div class="flex items-center gap-2">
-      <a href="https://t.me/Vodnyyu" target="_blank" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-bg text-xs font-bold transition-colors shadow-lg shadow-brand-500/20 whitespace-nowrap">
+      <a href="https://t.me/Vodnyyu" target="_blank" onclick="markAsShown()" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-bg text-xs font-bold transition-colors shadow-lg shadow-brand-500/20 whitespace-nowrap">
         Open Telegram
       </a>
       <button onclick="closePopup()" class="text-slate-400 hover:text-white p-1.5 text-sm">
@@ -308,19 +308,27 @@
   </div>
 
   <script>
-    // Show popup after 1.5 minutes (90,000 milliseconds)
-    setTimeout(() => {
-      const popup = document.getElementById('floating-popup');
-      if (popup) {
-        popup.classList.add('show');
-      }
-    }, 90000);
+    // Check if popup was already shown or closed before
+    if (!localStorage.getItem('popupShown')) {
+      setTimeout(() => {
+        const popup = document.getElementById('floating-popup');
+        if (popup && !localStorage.getItem('popupShown')) {
+          popup.classList.add('show');
+          localStorage.setItem('popupShown', 'true');
+        }
+      }, 90000); // 90 seconds = 1.5 minutes
+    }
 
     function closePopup() {
       const popup = document.getElementById('floating-popup');
       if (popup) {
         popup.classList.remove('show');
       }
+      localStorage.setItem('popupShown', 'true');
+    }
+
+    function markAsShown() {
+      localStorage.setItem('popupShown', 'true');
     }
   </script>
 
